@@ -5,16 +5,16 @@ using namespace std;
 
 MetodoPago::MetodoPago() 
 {
-    idMetodoPago = 0;
-    nombre = "";
-    descripcion = "";
+    idMetodoPago = ++contadorID;
+    numero = "";
+    vencimiento = "";
 }
 
-MetodoPago::MetodoPago(int _idMetodoPago, string _nombre, string _descripcion) 
+MetodoPago::MetodoPago(string _nombre, string _descripcion) 
 {
-    idMetodoPago = _idMetodoPago;
-    nombre = _nombre;
-    descripcion = _descripcion;
+    idMetodoPago = ++contadorID;
+    numero = _nombre;
+    vencimiento = _descripcion;
 }
 
 int MetodoPago::GetIdMetodoPago() 
