@@ -5,6 +5,7 @@
 #include <vector>
 #include "metodopago.h"
 #include "direccion.h"
+#include "Carrito.h"
 
 using namespace std;
 
@@ -14,6 +15,7 @@ class Cliente{
         int idUsuario;
         string nombre;
         string apellido;
+        Carrito carrito;
         vector<MetodoPago> metodosPago;
         vector<Direccion> direcciones;
         //vector<int> pedidos;
