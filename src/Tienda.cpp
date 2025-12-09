@@ -4,7 +4,7 @@
 #include <vector>
 #include <regex>
 using namespace std;
-#include "tienda.h"
+#include "Tienda.h"
 #include "usuario.h"
 
 Tienda::Tienda()
