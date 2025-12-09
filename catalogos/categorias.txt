@@ -1,0 +1,4 @@
+1,Electrónica,Todo tipo de dispositivos electrónicos
+2,Hogar,Productos para el hogar
+3,Ropa,Ropa para hombre y mujer
+4,Alimentos,Alimentos para toda la familia

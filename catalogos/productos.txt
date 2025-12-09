@@ -1,0 +1,10 @@
+1,Smartphone Samsung A24,Teléfono inteligente con pantalla AMOLED de 6.5 pulgadas,4899,35,1,0.180,ACTIVO,4.6
+2,Laptop HP 245 G8 14,Pantalla 14'' HD, Ryzen 5, 8GB RAM, 256GB SSD,8999,20,2,1.600,ACTIVO,4.8
+3,Aspiradora Dyson V8,Aspiradora inalámbrica con motor digital Dyson,7499,15,3,2.300,ACTIVO,4.9
+4,Audífonos Sony WH-1000XM5,Audífonos inalámbricos con cancelación activa de ruido,8990,40,1,0.250,ACTIVO,4.7
+5,Mouse Logitech G502 Hero,Mouse gamer de 25,600 DPI con 11 botones programables,999,60,4,0.120,ACTIVO,4.5
+6,Cafetera Nespresso Essenza Mini,Cafetera compacta de cápsulas,2399,25,3,2.000,ACTIVO,4.4
+7,Monitor LG 24MK600M-B,Monitor IPS de 24'' Full HD,2699,18,2,3.000,ACTIVO,4.6
+8,Disco Duro WD 1TB,HDD 1TB para almacenamiento interno,999,55,4,0.450,ACTIVO,4.3
+9,Teclado Mecánico Redragon,Teclado mecánico retroiluminado switches rojos,1299,50,4,0.900,ACTIVO,4.5
+10,Mochila Samsonite Tectonic,Mochila premium para laptop de 15'',1899,30,5,0.950,ACTIVO,4.7
