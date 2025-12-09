@@ -4,7 +4,7 @@
 Proyecto en C++ basado en Programación Orientada a Objetos (POO). El código se organiza en archivos de cabecera (.h) y fuente (.cpp) siguiendo buenas prácticas de estilo, revisión y control de versiones.
 
 
-## 🤝 Acuerdos del equipo
+## Acuerdos del equipo
 
 **Objetivo:** mantener un repositorio claro, legible y con historial coherente para facilitar el trabajo en equipo.
 
@@ -14,7 +14,7 @@ Proyecto en C++ basado en Programación Orientada a Objetos (POO). El código se
 
 ---
 
-## 🧭 Roles
+## Roles
 
 - **Coordinador**
   - Supervisar avances.
@@ -26,7 +26,7 @@ Proyecto en C++ basado en Programación Orientada a Objetos (POO). El código se
 
 ---
 
-## 🏗️ Responsables por clase
+## Responsables por clase
 
 - Cada clase tendrá un integrante asignado para:
   - **Diseño** (interfaz y relaciones).
@@ -35,7 +35,7 @@ Proyecto en C++ basado en Programación Orientada a Objetos (POO). El código se
 
 ---
 
-## ✍️ Estándar de Estilo del Código
+## Estándar de Estilo del Código
 
 - **Clases:** PascalCase  
   Ej.: `Producto`, `Cliente`, `CategoriaProducto`.
@@ -55,7 +55,7 @@ Proyecto en C++ basado en Programación Orientada a Objetos (POO). El código se
 
 ---
 
-## 🧪 Validaciones antes de subir cambios
+## Validaciones antes de subir cambios
 
 Antes de realizar un `git push`:
 
@@ -67,7 +67,7 @@ Antes de realizar un `git push`:
 
 ---
 
-## 📝 Estándar de Commits — Conventional Commits
+## Estándar de Commits — Conventional Commits
 
 Se usará Conventional Commits para mantener un historial claro.
 
@@ -95,7 +95,7 @@ Se usará Conventional Commits para mantener un historial claro.
 
 ---
 
-## ⚙️ Cómo compilar
+## Cómo compilar
 
 Este repositorio incluye un `Makefile` en la raíz. Para compilar:
 
@@ -111,7 +111,7 @@ make clean
 
 ---
 
-## 📁 Estructura básica del proyecto
+## Estructura básica del proyecto
 
 Proyecto/
 │
@@ -130,7 +130,7 @@ Proyecto/
 
 ---
 
-## ✅ Checklist rápido antes de PR
+## Checklist rápido antes de PR
 - [ ] Compila sin errores.
 - [ ] Pruebas relevantes pasadas.
 - [ ] Convencional commit correcto.
@@ -139,7 +139,7 @@ Proyecto/
 
 ---
 
-## 📎 Recursos y archivos importantes
+## Recursos y archivos importantes
 
 - Archivo principal: `main.cpp`  
 - Makefile: `Makefile`  
