@@ -1,50 +1,62 @@
 #ifndef CLIENTE_H
 #define CLIENTE_H
+
 #include <iostream>
 #include <string>
 #include <vector>
 #include "metodopago.h"
 #include "direccion.h"
+#include "Carrito.h"
+#include "Pedido.h"
 
 using namespace std;
 
 class Cliente{
-    private:
-        int idCliente;
-        int idUsuario;
-        string nombre;
-        string apellido;
-        vector<MetodoPago> metodosPago;
-        vector<Direccion> direcciones;
-        //vector<int> pedidos;
-        static int contadorID;
-    public:
-        Cliente();
-        Cliente(string nombre, string apellido);
+private:
+    int idCliente;
+    int idUsuario;
+    string nombre;
+    string apellido;
+    vector<MetodoPago> metodosPago;
+    vector<Direccion> direcciones;
+    Carrito carrito;
+    vector<Pedido> pedidos;
+    static int contadorID;
 
-        int getIdCliente();
-        string getNombre();
-        string getApellido();
+public:
+    Cliente();
+    Cliente(string nombre, string apellido);
 
-        int getIdUsuario();
-        void setIdUsuario(int _idUsuario);
+    int getIdCliente();
+    string getNombre();
+    string getApellido();
 
+    int getIdUsuario();
+    void setIdUsuario(int _idUsuario);
 
-        vector<Direccion> getDirecciones();
-        vector<MetodoPago> getMetodosPago();
+    vector<Direccion> getDirecciones();
+    vector<MetodoPago> getMetodosPago();
 
-        void mostrarMetodosPago();
-        void mostrarDirecciones();
+    void mostrarMetodosPago();
+    void mostrarDirecciones();
 
-        void setIdCliente(int idCliente);
-        void setNombre(string nombre);
-        void setApellido(string apellido);
+    void setIdCliente(int idCliente);
+    void setNombre(string nombre);
+    void setApellido(string apellido);
 
-        void agregarDireccion(string _calle, string _colonia, int _numero, string _ciudad, string _estado, int _codigoPostal, string _pais, string _referencias);
-        void eliminarDireccion(int idDireccion);
+    void agregarDireccion(string _calle, string _colonia, int _numero, string _ciudad,
+                          string _estado, int _codigoPostal, string _pais, string _referencias);
 
-        void agregarMetodoPago(string _numero, string _vencimiento);
-        void eliminarMetodoPago(int idMetodoPago);
+    void eliminarDireccion(int idDireccion);
+
+    void agregarMetodoPago(string _numero, string _vencimiento);
+    void eliminarMetodoPago(int idMetodoPago);
+
+    Carrito getCarrito();
+    void addCarritoItem(Producto p, int cantidad);
+
+    void realizarPedido(string _fecha, Direccion _direccionEnvio, MetodoPago _metodoPago);
+    vector<Pedido> getPedidos();
 };
 
-#endif // CLIENTE_H
+#endif

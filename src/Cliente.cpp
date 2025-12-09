@@ -2,6 +2,8 @@
 #include <algorithm>
 #include "cliente.h"
 
+int Cliente::contadorID = 0;
+
 Cliente::Cliente()
 {
     nombre = "";
@@ -56,7 +58,7 @@ vector<MetodoPago> Cliente::getMetodosPago()
 
 void Cliente::mostrarMetodosPago()
 {
-    for(int i = 0; i<= metodosPago.size(); i++){
+    for(size_t i = 0; i<  metodosPago.size(); i++){
         cout<<"--- ID Método de Pago: ---"<<metodosPago[i].getIdMetodoPago()<<endl;
         cout<<"Número: "<<metodosPago[i].getNumero()<<endl;
         cout<<"Vencimiento: "<<metodosPago[i].getIdMetodoPago()<<endl;
@@ -65,7 +67,7 @@ void Cliente::mostrarMetodosPago()
 
 void Cliente::mostrarDirecciones()
 {
-    for(int i = 0; i<= direcciones.size(); i++){
+    for(size_t i = 0; i< direcciones.size(); i++){
         cout<<"--- ID Dirección: ---"<<direcciones[i].getIdDireccion()<<endl;
         cout<<"Calle: "<<direcciones[i].getCalle()<<endl;
         cout<<"Colonia: "<<direcciones[i].getColonia()<<endl;
@@ -119,3 +121,37 @@ void Cliente::eliminarMetodoPago(int _idMetodoPago)
         return m.getIdMetodoPago() == _idMetodoPago;
     }), metodosPago.end());
 }
+
+Carrito Cliente::getCarrito()
+{
+    return carrito;
+}
+
+void Cliente::addCarritoItem(Producto p, int cantidad)
+{
+    carrito.agregarItem( CarritoItem(p, cantidad) );
+}
+
+void Cliente::realizarPedido(string _fecha, Direccion _direccionEnvio, MetodoPago _metodoPago)
+{
+    Pedido nuevoPedido(_fecha, _direccionEnvio, _metodoPago);
+
+    vector<CarritoItem> items = carrito.getContenido();
+
+    for (size_t i = 0; i < items.size(); i++) {
+        PedidoItem item;
+        item.setProducto(items[i].getProducto());
+        item.setCantidad(items[i].getCantidad());
+        nuevoPedido.agregarItem(item);
+    }
+
+    pedidos.push_back(nuevoPedido);
+
+    carrito.vaciarCarrito();
+}
+
+vector<Pedido> Cliente::getPedidos()
+{
+    return pedidos;
+}
+
