@@ -18,7 +18,7 @@ public:
     Producto getProducto();
     int getCantidad();
     double getPrecioUnitario();
-    double getSubtotal();
+    double getSubtotal() const;
     
     double obtenerSubtotal();
 };

@@ -7,7 +7,7 @@ Carrito::Carrito()
     contenido = {};
 }
 
-Carrito::Carrito(string _idcarrito, float _subtotal, vector<CarritoItem> _contenido,)
+Carrito::Carrito(string _idcarrito, float _subtotal, vector<CarritoItem> _contenido)
 {
     idCarrito = _idcarrito;
     subtotal = _subtotal;
@@ -86,6 +86,10 @@ void Carrito::setContenido(vector<CarritoItem> contenido)
 void Carrito::setSubtotal(float subtotal)
 {
     this->subtotal = subtotal;
+}
+
+Cliente* Carrito::getCliente() const {
+    return cliente;
 }
 
 void Carrito::pagarCarrito(float subtotal)

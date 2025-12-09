@@ -25,8 +25,9 @@ class Cliente{
         Cliente(string nombre, string apellido);
 
         int getIdCliente();
-        string getNombre();
+        string getNombre() const;
         string getApellido();
+        Carrito& getCarrito();
 
         int getIdUsuario();
         void setIdUsuario(int _idUsuario);

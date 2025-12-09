@@ -1,6 +1,6 @@
 #include <iostream>
 #include <algorithm>
-#include "cliente.h"
+#include "Cliente.h"
 
 Cliente::Cliente()
 {
@@ -24,7 +24,7 @@ int Cliente::getIdCliente()
     return idCliente;
 }
 
-string Cliente::getNombre()
+string Cliente::getNombre() const
 {
     return nombre;
 }
@@ -32,6 +32,11 @@ string Cliente::getNombre()
 string Cliente::getApellido()
 {
     return apellido;
+}
+
+Carrito& Cliente::getCarrito() 
+{ 
+    return carrito; 
 }
 
 int Cliente::getIdUsuario()

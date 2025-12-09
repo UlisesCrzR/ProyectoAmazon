@@ -8,14 +8,15 @@
 
 using namespace std;
 
-class Carrito: public CarritoItem, public Cliente {
+class Carrito {
 private:
     string idCarrito;
+    Cliente* cliente;
     vector<CarritoItem> contenido;
     float subtotal;
 public:
     Carrito();
-    Carrito(string _idcarrito, float _subtotal, vector<CarritoItem> _contenido,);
+    Carrito(string _idcarrito, float _subtotal, vector<CarritoItem> _contenido);
     void agregarItem(vector<CarritoItem> contenido);
     void agregarItem(CarritoItem item);
     void eliminarItem(vector<CarritoItem> contenido);
@@ -27,6 +28,7 @@ public:
     string getIdCarrito();
     vector<CarritoItem> getContenido();
     float getSubtotal();
+    Cliente* getCliente() const;
     
     // Setters
     void setIdCarrito(string idCarrito);

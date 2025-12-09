@@ -25,24 +25,24 @@ Pedido::Pedido(string _idPedido, Cliente _cliente, string _fechaPedido, Direccio
 double Pedido::calcularTotal()
 {
     for (const auto& item : items){
-        total += item.obtenerSubtotal();
+        total += item.getSubtotal();
     }
 
    return static_cast<double>(total);
 }
 
-void Pedido::agregarItem(PedidoItem item)
+void Pedido::agregarItem(const PedidoItem& item)
 {
     items.push_back(item);
     calcularTotal();
 }
 
-void Pedido::actualizarEstado(string nuevoEstado)
+void Pedido::actualizarEstado(const string& nuevoEstado)
 {
     estado = nuevoEstado;
 }
 
-string Pedido::obtenerDetalle()
+string Pedido::obtenerDetalle() const
 {
     string detalle = "ID: " + idPedido + 
                     "\nCliente: " + cliente.getNombre() +
@@ -58,9 +58,9 @@ void Pedido::procesarPago()
     cout << "Pedido ID: " << idPedido << endl;
     cout << "Monto a cobrar: $" << total << endl;
 
-    cout << "Validar metodo de pago: " << metodoPago.validar() << endl;
+    cout << "Id del metodo de pago: " << metodoPago.getIdMetodoPago() << endl;
 
-    if (total > 0 and ) {
+    if (total > 0 ) {
         cout << "Validando fondos..." << endl;
         cout << "Transaccion aprobada." << endl;
 
@@ -86,7 +86,7 @@ float Pedido::getTotal() const { return total; }
 void Pedido::setIdPedido(const string& _idPedido) { idPedido = _idPedido; }
 void Pedido::setCliente(const Cliente& _cliente) { cliente = _cliente; }
 void Pedido::setFechaPedido(const string& _fechaPedido) { fechaPedido = _fechaPedido; }
-void Pedido::setEstado(const string& estado) { estado = _estado; }
-void Pedido::setDireccionEnvio(const Direccion& _direccion) { direccionEnvio = _direccionEnvio; }
+void Pedido::setEstado(const string& _estado) { estado = _estado; }
+void Pedido::setDireccionEnvio(const Direccion& _direccionEnvio) { direccionEnvio = _direccionEnvio; }
 void Pedido::setMetodoPago(const MetodoPago& _metodoPago) { metodoPago = _metodoPago; }
-void Pedido::setTotal(const float& _nuevototal) { total = _nuevoTotal; }
+void Pedido::setTotal(const float& _nuevoTotal) { total = _nuevoTotal; }
