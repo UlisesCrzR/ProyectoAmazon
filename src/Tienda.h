@@ -30,7 +30,6 @@ class Tienda{
         void eliminarUsuario(int _idUsuario);
 
         void agregarProducto(
-            int _idProducto,
             string _nombre,
             string _descripcion,
             double _precio,
@@ -54,6 +53,9 @@ class Tienda{
 
         vector<Cliente> getClientes();
         vector<Categoria> getCategorias();
+        vector<Producto> getProductos();
+
+        Producto getProductoById(int _idProducto);
 };
 
 #endif // TIENDA_H
