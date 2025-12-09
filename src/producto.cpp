@@ -101,7 +101,7 @@ int Producto::getStock() {
     return stock;
 }
 
-string Producto::getCategoria(vector<Categoria> categorias) {
+string Producto::getCategoria() {
     for(int i = 0; i < categorias.size(); i++) {
         if (categorias[i].GetIdCategoria() == idCategoria) {
             return categorias[i].GetNombre();
