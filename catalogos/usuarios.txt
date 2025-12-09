@@ -1,0 +1,3 @@
+diego@mail.com,12345,5551234567
+maria@mail.com,abcde,5559876543
+juan@mail.com,pass123,5551122334
