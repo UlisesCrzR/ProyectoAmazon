@@ -1,34 +1,32 @@
-#ifndef __PRODUCTOALIMENTO_H__
-#define __PRODUCTOALIMENTO_H__
+#ifndef PRODUCTOALIMENTO_H
+#define PRODUCTOALIMENTO_H
 
-#include <iostream>
-#include <string>
 #include <ctime>
-#include "Producto.h"
+#include "producto.h"
+#include "categoria.h"
 using namespace std;
 
+class ProductoAlimento : public Producto {
+private:
+    tm fechaCaducidad;
+    bool esPerecedero;
 
-class ProductoAlimento{
-    private:
-        tm fechaCaducidad;
-        bool esPerecedero;
-    public:
-        ProductoAlimento();
+public:
+    ProductoAlimento();
+    ProductoAlimento(string _nombre, string _descripcion, double _precio,
+                     int _stock, Categoria _categoria, double _peso, string _estatus,
+                     double _valoracionPromedio, tm _fechaCaducidad, bool _esPerecedero);
 
-        ProductoAlimento(int _idProducto, string _nombre, string _descripcion, double _precio, 
-            int _stock, Categoria _categoria, double _peso, string _estatus, double _valoracionPromedio,
-            tm _fechaCaducidad, bool _esPerecedero);
-        
-        int diasParaCaducar() const;
+    // Métodos propios
+    int diasParaCaducar() const;
+    bool requiereRefrigeracion() const;
 
-        bool requiereRefrigeracion() const;
-        
-        // Getters
-        tm getFechaCaducidad() const ;
-        bool getEsPerecedero() const ;
-        
-        // Setters
-        void setFechaCaducidad(const tm& _fechaCaducidad) ;
-        void setEsPerecedero(bool _esPerecedero) ;
-}
-#endif // __PRODUCTOALIMENTO_H__
+    // Getters y setters
+    tm getFechaCaducidad() const;
+    bool getEsPerecedero() const;
+
+    void setFechaCaducidad(const tm& _fechaCaducidad);
+    void setEsPerecedero(bool _esPerecedero);
+};
+
+#endif
