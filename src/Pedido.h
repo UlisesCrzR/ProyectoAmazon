@@ -6,8 +6,6 @@
 #include <vector>
 #include "Cliente.h"
 #include "PedidoItem.h"
-#include "Direccion.h"
-#include "MetodoPago.h"
 using namespace std;
 
 class Pedido{

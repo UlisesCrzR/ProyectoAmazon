@@ -8,7 +8,7 @@ Pedido::Pedido()
 {
     idPedido = "";
     fechaPedido = "";
-    total = 0.0f;
+    total = 0.0;
     estado = "";
 }
 
