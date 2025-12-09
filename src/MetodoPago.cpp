@@ -3,6 +3,8 @@
 #include "MetodoPago.h"
 using namespace std;
 
+int MetodoPago::contadorID = 1;
+
 MetodoPago::MetodoPago() 
 {
     idMetodoPago = ++contadorID;
@@ -15,6 +17,11 @@ MetodoPago::MetodoPago(string _nombre, string _descripcion)
     idMetodoPago = ++contadorID;
     numero = _nombre;
     vencimiento = _descripcion;
+}
+
+int MetodoPago::getIdMetodoPago()
+{
+    return idMetodoPago;
 }
 
 string MetodoPago::getNumero()

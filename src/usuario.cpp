@@ -4,6 +4,8 @@
 #include <cstdlib> // convertidores
 #include "usuario.h"
 
+int Usuario::contadorID = 3;
+
 Usuario::Usuario()
 {
     email = "";

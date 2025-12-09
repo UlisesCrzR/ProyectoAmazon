@@ -33,7 +33,7 @@ class Envio {
         void setCostoEnvio(float costoEnvio);
 
         void actualizarEstado(string nuevoEstado);
-        void revisarEstado(stirng estado);
+        void revisarEstado(string estado);
         void revisarEntrega(string fechaEntrega);
         void cancelarEnvio();
 
