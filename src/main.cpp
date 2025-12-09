@@ -5,88 +5,165 @@ using namespace std;
 
 int main(){
     system("chcp 65001"); // UTF-8
+
     Tienda Amazon("Amazon MX");
     Amazon.cargarCatalogos();
 
-    int opcion, subOpcion, optionProducto;
-    string email, contrasena, telefono, nombre, apellido, direccion, metodoPago;
-    bool respuesta = false;
+    int opcion, subOpcion;
+    string email, contrasena, telefono;
+    string nombre, apellido, direccion, metodoPago;
+    vector<Cliente> clientes;
 
+    bool sesionIniciada = false;
 
     do{
-        cout<<"Bienvenido a "<<Amazon.getNombre()<<endl;
-        cout<<"Por favor seleccione una opcion:"<<endl;
-        cout<<"1. Iniciar sesion"<<endl;
-        cout<<"2. Registrarse"<<endl;
-        cout<<"0. Salir"<<endl;
-        cin>>opcion;
+        cout << "\n--- Bienvenido a " << Amazon.getNombre() << " ---\n";
+        cout << "1. Iniciar sesión\n";
+        cout << "2. Registrarse\n";
+        cout << "0. Salir\n";
+        cin >> opcion;
 
-        if(opcion == 1){
-            bool respuestaId = 0;
+        switch(opcion){
+
+        // Iniciar Sesion
+        case 1:{
+            int idUsuarioLogueado = 0;
+
             do{
-                cout<<"Por favor, ingrese sus credenciales para iniciar sesion."<<endl;
-                cout<<"Email: ";
-                cin>>email;
-                cout<<"Contraseña: ";
-                cin>>contrasena;
-                respuestaId = Amazon.iniciarSesion(email, contrasena);
-            }while(respuestaId == 0);
+                cout << "Email: ";
+                cin >> email;
+                cout << "Contraseña: ";
+                cin >> contrasena;
 
-            cout<<"Seleccione otra opción que desea hacer";
-            cout<<"1. Hacer una pedido"<<endl;
-            cout<<"2. Agregar producto"<<endl;
+                idUsuarioLogueado = Amazon.iniciarSesion(email, contrasena);
+            }while(idUsuarioLogueado == 0);
 
-            cout<<"4. Cerrar sesión"<<endl;
+            sesionIniciada = true;
 
-            cin>>subOpcion;
+            //Menu usuario Logueado
+            do{
+                cout << "\n--- Menú de usuario ---\n";
+                cout << "1. Ver productos\n";
+                cout << "2. Agregar producto al carrito\n";
+                cout << "3. Realizar pedido\n";
+                cout << "4. Agregar producto\n";
+                cout << "0. Cerrar sesión\n";
+                cin >> subOpcion;
 
-            if(subOpcion == 1){
-                cout<<"Selecciona una opción<<"<<endl;
-                cout<<"1. Mostrar productos"<<endl;
-                cout<<"2. Agregar producto al carrito"<<endl;
-                cin>>optionProducto;
+                switch(subOpcion){
 
-                if(optionProducto == 1){
-                    
-                }else if(optionProducto == 2){
-                    //Lógica para agregar producto al carrito 
+                case 1:
+                    Amazon.mostrarProductos();
+                    break;
+
+                case 2:
+                    Amazon.mostrarProductos();
+                    clientes = Amazon.getClientes();
+
+                    for(int i = 0; i < clientes.size(); i++){
+                        if(clientes[i].getIdUsuario() == idUsuarioLogueado){
+                            
+                            cout << "Hola " << clientes[i].getNombre() << "!\n";
+                            cout << "Selecciona el ID del producto a agregar al carrito: ";
+
+                            int idProducto;
+                            cin >> idProducto;
+                        }
+                    }
+                    break;
+
+                case 3:
+                    //Amazon.realizarPedido();
+                    break;
+
+                case 4:{
+                    int id, stock, idCategoria;
+                    string nombre, descripcion, estatus;
+                    double precio;
+                    float peso, calificacion;
+
+                    cout << "ID del producto: ";
+                    cin >> id;
+                    cout << "Nombre: ";
+                    cin >> nombre;
+                    cout << "Descripción: ";
+                    cin >> descripcion;
+                    cout << "Precio: ";
+                    cin >> precio;
+                    cout << "Stock: ";
+                    cin >> stock;
+                    cout << "ID de categoría: ";
+                    cin >> idCategoria;
+                    cout << "Peso: ";
+                    cin >> peso;
+                    cout << "Estatus: ";
+                    cin >> estatus;
+                    cout << "Calificación promedio: ";
+                    cin >> calificacion;
+
+                    Amazon.agregarProducto(
+                        id, nombre, descripcion, precio,
+                        stock, idCategoria, peso, estatus,
+                        calificacion
+                    );
+                    break;
                 }
 
-            }else if(subOpcion == 2){
-                cout<<"Sesión cerrada exitosamente."<<endl;
-            }
+                case 0:
+                    cout << "Sesión cerrada.\n";
+                    sesionIniciada = false;
+                    break;
+
+                default:
+                    cout << "Opción inválida.\n";
+                }
+
+            }while(sesionIniciada != 0);
+
+        } break;
 
 
-        }else if(opcion == 2){
+        //Registrarse
+        case 2:{
+            bool registroCorrecto = false;
+
             do{
-                cout<<"Por favor, ingrese los siguientes datos"<<endl;
-                cout<<"Email: ";
-                cin>>email;
-                cout<<"Contraseña: ";
-                cin>>contrasena;
-                cout<<"Teléfono: ";
-                cin>>telefono;
-                respuesta = Amazon.registrarse(email, contrasena, telefono);
-            }while(respuesta == false);
-                cout<<"Por favor, complete la información: "<<endl; //Pide completar información para crear cliente
-                cout<<"Nombre: ";
-                cin>>nombre;
-                cout<<"Apellido: ";
-                cin>>apellido;
-                cout<<"Dirección: ";
-                cin>>direccion;
-                cout<<"Método de pago: ";
-                cin>>metodoPago;
-                Amazon.registrarCliente(nombre, apellido, direccion, metodoPago);
+                cout << "Email: ";
+                cin >> email;
+                cout << "Contraseña: ";
+                cin >> contrasena;
+                cout << "Teléfono: ";
+                cin >> telefono;
 
-            opcion = 1; //Después de registrarse, redirige a iniciar sesión
+                registroCorrecto = Amazon.registrarse(email, contrasena, telefono);
+
+            }while(registroCorrecto == false);
+
+            cout << "\n--- Completa tu información ---\n";
+            cout << "Nombre: ";
+            cin >> nombre;
+            cout << "Apellido: ";
+            cin >> apellido;
+            cout << "Dirección: ";
+            cin >> direccion;
+            cout << "Método de pago: ";
+            cin >> metodoPago;
+
+            Amazon.registrarCliente(nombre, apellido, direccion, metodoPago);
+
+            cout << "\nRegistro completo. Ahora inicia sesión.\n";
+        } break;
+
+
+        //Salir
+        case 0:
+            cout << "Gracias por visitar " << Amazon.getNombre() << ". ¡Hasta luego!\n";
+            break;
+
+        default:
+            cout << "Opción inválida, intente de nuevo.\n";
         }
-        else if(opcion == 0){
-            cout<<"Gracias por visitar "<<Amazon.getNombre()<<". ¡Hasta luego!"<<endl;
-        }
-        else{
-            cout<<"Opcion invalida. Por favor intente de nuevo."<<endl;
-        }
+
     }while(opcion != 0);
 
     return 0;
