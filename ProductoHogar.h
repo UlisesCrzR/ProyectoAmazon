@@ -23,11 +23,11 @@ class ProductoHogar{
         string descripcionHogar() const;
 
         // Setters
-        string ProductoHogar::getMaterial() const { return material; }
-        bool ProductoHogar::getEsArmable() const { return esArmable; }
+        string getMaterial() const ;
+        bool getEsArmable() const ;
 
         // Getters
-        void ProductoHogar::setMaterial(const string& _material) { material = _material; }
-        void ProductoHogar::setEsArmable(bool _esArmable) { esArmable = _esArmable; }
+        void setMaterial(const string& _material) ;
+        void setEsArmable(bool _esArmable) ;
 }
 #endif // __PRODUCTOHOGAR_H__

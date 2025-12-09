@@ -24,3 +24,11 @@ string ProductoHogar::descripcionHogar() const
 {
     return "Material: " + material + ", Armable: " + (esArmable ? "Sí" : "No");
 }
+
+// Setters
+string ProductoHogar::getMaterial() const { return material; }
+bool ProductoHogar::getEsArmable() const { return esArmable; }
+
+// Getters
+void ProductoHogar::setMaterial(const string& _material) { material = _material; }
+void ProductoHogar::setEsArmable(bool _esArmable) { esArmable = _esArmable; }

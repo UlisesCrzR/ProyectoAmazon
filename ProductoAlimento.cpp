@@ -31,3 +31,11 @@ bool ProductoAlimento::requiereRefrigeracion()
         cout << "No necesita refrigeracion" << endl;
     }
 }
+
+// Getters
+tm ProductoAlimento::getFechaCaducidad() const { return fechaCaducidad; }
+bool ProductoAlimento::getEsPerecedero() const { return esPerecedero; }
+        
+// Setters
+void ProductoAlimento::setFechaCaducidad(const tm& _fechaCaducidad) { fechaCaducidad = _fechaCaducidad; }
+void ProductoAlimento::setEsPerecedero(bool _esPerecedero) { esPerecedero = _esPerecedero; }

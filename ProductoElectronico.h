@@ -21,11 +21,11 @@ class ProductoElectronico{
         
         void extenderGarantia(int meses);
 
-        int ProductoElectronico::getGarantiaMeses() const { return garantiaMeses; }
-        double ProductoElectronico::getConsumoEnergia() const { return consumoEnergia; }
+        int getGarantiaMeses() const ;
+        double getConsumoEnergia() const ;
 
-        void ProductoElectronico::setGarantiaMeses(int _garantiaMeses) { garantiaMeses = _garantiaMeses; }
-        void ProductoElectronico::setConsumoEnergia(double _consumoEnergia) { consumoEnergia = _consumoEnergia; }
+        void setGarantiaMeses(int _garantiaMeses) ;
+        void setConsumoEnergia(double _consumoEnergia) ;
 }
 #endif // __PRODUCTOELECTRONICO_H__
 

@@ -24,11 +24,11 @@ class ProductoAlimento{
         bool requiereRefrigeracion() const;
         
         // Getters
-        tm ProductoAlimento::getFechaCaducidad() const { return fechaCaducidad; }
-        bool ProductoAlimento::getEsPerecedero() const { return esPerecedero; }
+        tm getFechaCaducidad() const ;
+        bool getEsPerecedero() const ;
         
         // Setters
-        void ProductoAlimento::setFechaCaducidad(const tm& _fechaCaducidad) { fechaCaducidad = _fechaCaducidad; }
-        void ProductoAlimento::setEsPerecedero(bool _esPerecedero) { esPerecedero = _esPerecedero; }
+        void setFechaCaducidad(const tm& _fechaCaducidad) ;
+        void setEsPerecedero(bool _esPerecedero) ;
 }
 #endif // __PRODUCTOALIMENTO_H__

@@ -27,3 +27,8 @@ void ProductoElectronico::extenderGarantia(int meses)
     garantiaMeses += meses;
 }
 
+int ProductoElectronico::getGarantiaMeses() const { return garantiaMeses; }
+double ProductoElectronico::getConsumoEnergia() const { return consumoEnergia; }
+
+void ProductoElectronico::setGarantiaMeses(int _garantiaMeses) { garantiaMeses = _garantiaMeses; }
+void ProductoElectronico::setConsumoEnergia(double _consumoEnergia) { consumoEnergia = _consumoEnergia; }
