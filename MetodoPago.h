@@ -8,19 +8,21 @@ using namespace std;
 class MetodoPago {
 private:
     int idMetodoPago;
-    string nombre;
-    string descripcion;
+    string numero;
+    string vencimiento;
+
+    static int contadorID;
 
 public:
     MetodoPago();
-    MetodoPago(int _idMetodoPago, string _nombre, string _descripcion);
+    MetodoPago(string _numero, string _vencimiento);
 
-    int GetIdMetodoPago();
-    string GetNombre();
-    string GetDescripcion();
+    int getIdMetodoPago();
+    string getNumero();
+    string getDescripcion();
 
-    void SetNombre(string _nombre);
-    void SetDescripcion(string _descripcion);
+    void setNombre(string _numero);
+    void setDescripcion(string _vencimiento);
 };
 
 #endif // METODOPAGO_H
