@@ -1,13 +1,32 @@
+CXX = g++
+CXXFLAGS = -std=c++17 -Wall -I./src
+
 # Nombre del ejecutable
 TARGET = main
 
-# Buscar todos los .cpp excepto los que inician con test
-SOURCES := $(filter-out test%.cpp, $(wildcard *.cpp))
+# Carpetas
+SRC_DIR = src
+BUILD_DIR = build
+
+# Buscar todos los .cpp dentro de src/
+SOURCES := $(wildcard $(SRC_DIR)/*.cpp)
+
+# Convertir *.cpp → build/*.o
+OBJECTS := $(patsubst $(SRC_DIR)/%.cpp,$(BUILD_DIR)/%.o,$(SOURCES))
 
 # Regla principal
-$(TARGET): $(SOURCES)
-	$(CXX) $(SOURCES) -o $(TARGET)
+$(TARGET): $(OBJECTS)
+	$(CXX) $(OBJECTS) -o $(TARGET)
 
-# Limpieza
+# Regla para compilar cada .cpp
+$(BUILD_DIR)/%.o: $(SRC_DIR)/%.cpp | $(BUILD_DIR)
+	$(CXX) $(CXXFLAGS) -c $< -o $@
+
+# Crear carpeta build si no existe
+$(BUILD_DIR):
+	mkdir $(BUILD_DIR)
+
+# Limpiar
 clean:
-	$(RM) $(TARGET)
+	del /Q $(BUILD_DIR)\*.o
+	del /Q $(TARGET).exe
