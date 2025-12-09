@@ -2,37 +2,36 @@
 #define __CARRITO_H__
 
 #include <vector>
-#include "Cliente.h"
-#include "CarritoItem.h"
 #include <string>
+#include "CarritoItem.h"
 
 using namespace std;
 
-class Carrito: public CarritoItem, public Cliente {
+class Carrito {
 private:
-    string idCarrito;
+    int idCarrito;
+    int idCliente;
     vector<CarritoItem> contenido;
     float subtotal;
+
 public:
     Carrito();
-    Carrito(string _idcarrito, float _subtotal, vector<CarritoItem> _contenido,);
-    void agregarItem(vector<CarritoItem> contenido);
+
+    // Métodos funcionales
     void agregarItem(CarritoItem item);
-    void eliminarItem(vector<CarritoItem> contenido);
     void eliminarItem(int indice);
-    void vaciarCarrito(vector<CarritoItem> contenido);
-    void pagarCarrito(float subtotal);
-    
+    void vaciarCarrito();
+    void recalcularSubtotal();
+
     // Getters
-    string getIdCarrito();
-    vector<CarritoItem> getContenido();
-    float getSubtotal();
-    
+    int getIdCarrito() const;
+    int getIdCliente() const;
+    vector<CarritoItem> getContenido() const;
+    float getSubtotal() const;
+
     // Setters
-    void setIdCarrito(string idCarrito);
-    void setContenido(vector<CarritoItem> contenido);
-    void setSubtotal(float subtotal);
-
-
+    void setIdCarrito(int idCarrito);
+    void setIdCliente(int idCliente);
 };
+
 #endif // __CARRITO_H__
