@@ -40,3 +40,23 @@ string Direccion::formatoCompleto()
                     "\nReferencias: " + referencias; 
     return formato;
 }
+
+// Getters
+        string Direccion::getCalle() const { return calle; }
+        int Direccion::getNumero() const { return numero; }
+        string Direccion::getColonia() const { return colonia; }
+        string Direccion::getCiudad() const { return ciudad; }
+        string Direccion::getEstado() const { return estado; }
+        int Direccion::getCodigoPostal() const { return codigoPostal; }
+        string Direccion::getPais() const { return pais; }
+        string Direccion::getReferencias() const { return referencias; }
+
+        // Setters
+        void Direccion::setCalle(const string& _calle) { calle = _calle; }
+        void Direccion::setNumero(int _numero) { numero = _numero; }
+        void Direccion::setColonia(const string& _colonia) { colonia = _colonia; }
+        void Direccion::setCiudad(const string& _ciudad) { ciudad = _ciudad; }
+        void Direccion::setEstado(const string& _estado) { estado = _estado; }
+        void Direccion::setCodigoPostal(const int& _codigoPostal) { codigoPostal = _codigoPostal; }
+        void Direccion::setPais(const string& _pais) { pais = _pais; }
+        void Direccion::setReferencias(const string& _referencias) { referencias = _referencias; }
