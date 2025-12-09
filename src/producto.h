@@ -5,6 +5,7 @@
 #include <string>
 #include <vector>
 #include "categoria.h"
+
 using namespace std;
 
 class Producto {
@@ -20,10 +21,17 @@ protected:
     float calificacionPromedio;
     vector<Categoria> categorias;
 
+     static int contadorID;
+
 public:
+    Producto();
+    Producto(string _nombre, string _descripcion, double _precio,
+             int _stock, int _idCategoria, float _peso, string _estatus,
+             float _calificacionPromedio);
+
     static vector<Producto> cargarCatalogo();
 
-    //setters
+    // Setters
     void setIdProducto(int _id);
     void setStock(int _cantidad);
     void setEstatus(string _estatus);
@@ -34,7 +42,7 @@ public:
     void setPeso(float _peso);
     void setCalificacionPromedio(float _calificacion);
 
-    //getters
+    // Getters
     int getIdProducto();
     string getNombre();
     string getDescripcion();

@@ -1,18 +1,50 @@
 #include <iostream>
 #include <fstream>   // ifstream
 #include <sstream>   // stringstream
-#include <cstdlib>   // conversión
+#include <cstdlib>   // atoi, atof
+#include <vector>
 #include "producto.h"
+
 using namespace std;
+
+int Producto::contadorID = 10;
+
+Producto::Producto()
+{
+    // Constructor vacío
+    idProducto = 0;
+    precio = 0.0;
+    stock = 0;
+    idCategoria = 0;
+    peso = 0.0;
+    calificacionPromedio = 0.0;
+}
+
+Producto::Producto(string _nombre, string _descripcion, double _precio,
+             int _stock, int _idCategoria, float _peso, string _estatus,
+             float _calificacionPromedio)
+{
+    idProducto = ++contadorID;
+    nombre = _nombre;
+    descripcion = _descripcion;
+    precio = _precio;
+    stock = _stock;
+    idCategoria = _idCategoria;
+    peso = _peso;
+    estatus = _estatus;
+    calificacionPromedio = _calificacionPromedio;
+}
 
 vector<Producto> Producto::cargarCatalogo() {
     vector<Producto> productos;
-    ifstream file("./catalogos/productos.txt");
+    ifstream file("./catalogos/productos.txt"); 
 
-    if (!file)
-        throw runtime_error("Error: No se pudo abrir productos.txt");
+    if (!file) {
+        cerr << "Error: No se pudo abrir ./catalogos/productos.txt" << endl;
+        return productos;
+    }
 
-    while (!file.eof()) {
+    while (file.good()) {
         string id, nom, desc, precio, stock, idCat, peso, estatus, calif;
 
         getline(file, id, ',');
@@ -25,8 +57,8 @@ vector<Producto> Producto::cargarCatalogo() {
         getline(file, estatus, ',');
         getline(file, calif);
 
-        if (id == "")
-            break;
+        // Limpieza básica por si el archivo tiene líneas vacías al final
+        if (id.empty()) continue; 
 
         Producto p;
 
@@ -47,6 +79,11 @@ vector<Producto> Producto::cargarCatalogo() {
     return productos;
 }
 
+// Implementación que faltaba y causaba el "undefined reference"
+void Producto::setIdProducto(int _id)
+{
+    idProducto = _id;
+}
 
 void Producto::setStock(int _cantidad) {
     stock = _cantidad;
@@ -80,7 +117,6 @@ void Producto::setCalificacionPromedio(float _calificacion) {
     calificacionPromedio = _calificacion;
 }
 
-
 int Producto::getIdProducto() {
     return idProducto;
 }
@@ -102,7 +138,8 @@ int Producto::getStock() {
 }
 
 string Producto::getCategoria() {
-    for(int i = 0; i < categorias.size(); i++) {
+    // CORRECCIÓN: Usar size_t para evitar warning de comparación
+    for(size_t i = 0; i < categorias.size(); i++) {
         if (categorias[i].GetIdCategoria() == idCategoria) {
             return categorias[i].GetNombre();
         }
