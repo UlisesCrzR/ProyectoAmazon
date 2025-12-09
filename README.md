@@ -115,16 +115,27 @@ make clean
 
 Proyecto/
 │
+├── build/
+│   ├── Carrito.o
+│   ├── Cliente.o
+│   ├── Producto.o
+│   └── ...
+│
+├── catalogos/
+│   ├── categorias.txt
+│   ├── productos.txt
+│   ├── usuarios.txt
+│   └── ...
+│
+│
 ├── src/
 │   ├── main.cpp
 │   ├── Producto.cpp
-│   └── Cliente.cpp
+│   ├── Producto.h
+│   ├── Cliente.cpp
+│   ├── Cliente.h
 │   └── ...
 │
-├── include/
-│   ├── Producto.h
-│   └── Cliente.h
-│   └── ...
 │
 └── README.md
 
@@ -147,5 +158,3 @@ Proyecto/
 - Notas del repositorio: `Readme.txt`
 
 ---
-
-Gracias por mantener el proyecto ordenado y documentado. Siguiendo estas pautas el equipo trabajará más eficientemente y evitará conflictos recurrentes.
