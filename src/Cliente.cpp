@@ -1,0 +1,121 @@
+#include <iostream>
+#include <algorithm>
+#include "cliente.h"
+
+Cliente::Cliente()
+{
+    nombre = "";
+    apellido = "";
+    idCliente = contadorID++;
+    idUsuario = 0;
+    metodosPago = {};
+    direcciones = {};
+}
+
+Cliente::Cliente(string _nombre, string _apellido)
+{
+    nombre = _nombre;
+    apellido = _apellido;
+    idCliente = ++contadorID;
+}
+
+int Cliente::getIdCliente()
+{
+    return idCliente;
+}
+
+string Cliente::getNombre()
+{
+    return nombre;
+}
+
+string Cliente::getApellido()
+{
+    return apellido;
+}
+
+int Cliente::getIdUsuario()
+{
+    return idUsuario;
+}
+
+void Cliente::setIdUsuario(int _idUsuario)
+{
+    idUsuario = _idUsuario;
+}
+
+vector<Direccion> Cliente::getDirecciones()
+{
+    return direcciones;
+}
+
+vector<MetodoPago> Cliente::getMetodosPago()
+{
+    return metodosPago;
+}
+
+void Cliente::mostrarMetodosPago()
+{
+    for(int i = 0; i<= metodosPago.size(); i++){
+        cout<<"--- ID Método de Pago: ---"<<metodosPago[i].getIdMetodoPago()<<endl;
+        cout<<"Número: "<<metodosPago[i].getNumero()<<endl;
+        cout<<"Vencimiento: "<<metodosPago[i].getIdMetodoPago()<<endl;
+    }
+}
+
+void Cliente::mostrarDirecciones()
+{
+    for(int i = 0; i<= direcciones.size(); i++){
+        cout<<"--- ID Dirección: ---"<<direcciones[i].getIdDireccion()<<endl;
+        cout<<"Calle: "<<direcciones[i].getCalle()<<endl;
+        cout<<"Colonia: "<<direcciones[i].getColonia()<<endl;
+        cout<<"Número: "<<direcciones[i].getNumero()<<endl;
+        cout<<"Ciudad: "<<direcciones[i].getCiudad()<<endl;
+        cout<<"Estado: "<<direcciones[i].getEstado()<<endl;
+        cout<<"Código Postal: "<<direcciones[i].getCodigoPostal()<<endl;
+        cout<<"País: "<<direcciones[i].getPais()<<endl;
+        cout<<"Referencias: "<<direcciones[i].getReferencias()<<endl;
+    }
+}
+
+void Cliente::setIdCliente(int _idCliente)
+{
+    idCliente = _idCliente;
+}
+
+void Cliente::setNombre(string _nombre)
+{
+    nombre = _nombre;
+}
+
+void Cliente::setApellido(string _apellido)
+{
+    apellido = _apellido;
+}
+
+void Cliente::agregarDireccion(string _calle, string _colonia, int _numero, string _ciudad, string _estado, int _codigoPostal, string _pais, string _referencias)
+{
+    Direccion d(_calle, _colonia, _numero, _ciudad, _estado, _codigoPostal, _pais, _referencias);
+    direcciones.push_back(d);
+}
+
+void Cliente::eliminarDireccion(int _idDireccion)
+{
+    direcciones.erase(
+        remove_if(direcciones.begin(), direcciones.end(),
+                   [_idDireccion](Direccion &d) { return d.getIdDireccion() == _idDireccion; }),
+        direcciones.end());
+}
+
+void Cliente::agregarMetodoPago(string _numero, string _vencimiento)
+{
+    MetodoPago mp(_numero, _vencimiento);
+    metodosPago.push_back(mp);
+}
+
+void Cliente::eliminarMetodoPago(int _idMetodoPago)
+{
+    metodosPago.erase(remove_if(metodosPago.begin(), metodosPago.end(), [_idMetodoPago](MetodoPago &m) {
+        return m.getIdMetodoPago() == _idMetodoPago;
+    }), metodosPago.end());
+}
