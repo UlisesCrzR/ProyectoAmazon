@@ -4,7 +4,6 @@
 #include <iostream>
 #include <string>
 #include <vector>
-#include "Producto.h"
 using namespace std;
 
 class Categoria {
@@ -12,7 +11,6 @@ private:
     int idCategoria;
     string nombre;
     string descripcion;
-    vector<Producto> productos;
 
     static int contadorID;
 

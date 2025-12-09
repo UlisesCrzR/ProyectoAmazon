@@ -8,6 +8,8 @@
 #include <cstdlib>   // conversión
 using namespace std;
 
+int Categoria::contadorID = 4;
+
 Categoria::Categoria() 
 {
     idCategoria = 0;
