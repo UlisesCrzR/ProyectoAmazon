@@ -17,27 +17,22 @@ MetodoPago::MetodoPago(string _nombre, string _descripcion)
     vencimiento = _descripcion;
 }
 
-int MetodoPago::GetIdMetodoPago() 
+string MetodoPago::getNumero()
 {
-    return idMetodoPago;
+    return numero;
 }
 
-string MetodoPago::GetNombre() 
+string MetodoPago::getVencimiento()
 {
-    return nombre;
+    return vencimiento;
 }
 
-string MetodoPago::GetDescripcion() 
+void MetodoPago::setNombre(string _numero)
 {
-    return descripcion;
+    numero = _numero; 
 }
 
-void MetodoPago::SetNombre(string _nombre) 
+void MetodoPago::setVencimiento(string _vencimiento)
 {
-    nombre = _nombre;
-}
-
-void MetodoPago::SetDescripcion(string _descripcion) 
-{
-    descripcion = _descripcion;
+    vencimiento = _vencimiento;
 }

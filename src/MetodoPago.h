@@ -19,10 +19,10 @@ public:
 
     int getIdMetodoPago();
     string getNumero();
-    string getDescripcion();
+    string getVencimiento();
 
     void setNombre(string _numero);
-    void setDescripcion(string _vencimiento);
+    void setVencimiento(string _vencimiento);
 };
 
 #endif // METODOPAGO_H
