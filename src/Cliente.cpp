@@ -26,7 +26,7 @@ int Cliente::getIdCliente()
     return idCliente;
 }
 
-string Cliente::getNombre() const
+string Cliente::getNombre()
 {
     return nombre;
 }
@@ -36,7 +36,7 @@ string Cliente::getApellido()
     return apellido;
 }
 
-Carrito& Cliente::getCarrito() 
+Carrito Cliente::getCarrito() 
 { 
     return carrito; 
 }
@@ -125,11 +125,6 @@ void Cliente::eliminarMetodoPago(int _idMetodoPago)
     metodosPago.erase(remove_if(metodosPago.begin(), metodosPago.end(), [_idMetodoPago](MetodoPago &m) {
         return m.getIdMetodoPago() == _idMetodoPago;
     }), metodosPago.end());
-}
-
-Carrito Cliente::getCarrito()
-{
-    return carrito;
 }
 
 void Cliente::addCarritoItem(Producto p, int cantidad)
